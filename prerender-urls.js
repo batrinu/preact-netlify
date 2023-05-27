@@ -3,14 +3,15 @@ const { join } = require('path');
 const fs = require('fs');
 const parseMD = require('parse-md').default;
 
-const [blogs] = generateFileList(join(__dirname, 'content')).nodes;
+const [blogs, home] = generateFileList(join(__dirname, 'content')).nodes;
 module.exports = () => {
 	const pages = [
 		{
 			url: '/',
 			seo: {
 				cover: '/assets/profile.jpg'
-			}
+			},
+			data: home
 		},
 		{ url: '/contact/' },
 		{ url: '/contact/success' }

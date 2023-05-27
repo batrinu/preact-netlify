@@ -1,9 +1,11 @@
 import { h } from "preact";
 import { useEffect } from 'preact/hooks';
 import style from "./style";
+import { usePrerenderData } from '@preact/prerender-data-provider';
 
-const Home = () => {
-
+const Home = (props) => {
+	const [data, isLoading] = usePrerenderData(props);
+	console.log({data})
 	/**
 	 * Netlify CMS's accept invite link land on home page.
 	 * This redirection takes it to the right place(/admin).

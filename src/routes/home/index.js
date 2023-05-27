@@ -5,6 +5,7 @@ import { usePrerenderData } from '@preact/prerender-data-provider';
 
 const Home = (props) => {
   const [data, isLoading] = usePrerenderData(props);
+  console.log("🚀 ~ file: index.js:8 ~ Home ~ data:", data)
 
   useEffect(() => {
     if (window !== undefined && window.location.href.includes('#invite_token')) {

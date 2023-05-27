@@ -17,3 +17,12 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "home-page"}
       - {label: "Hero Title", name: "heroTitle", widget: "string"}
       - {label: "Hero Description", name: "heroDescription", widget: "text"}
+- name: "tour_dates" # New collection for tour dates
+    label: "Tour Dates"
+    folder: "src/content/tour_dates"
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "date", format: "MMM Do, YYYY"}
+      - {label: "Location", name: "location", widget: "string"}

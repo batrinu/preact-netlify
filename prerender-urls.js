@@ -1,46 +1,21 @@
-const { generateFileList } = require('./src/crawler');
-const { join } = require('path');
-const fs = require('fs');
-const parseMD = require('parse-md').default;
+const { generateFileList } = require("./src/crawler");
+const { join } = require("path");
+// const fs = require('fs');
+// const parseMD = require('parse-md').default;
 
-const [blogs, home] = generateFileList(join(__dirname, 'content')).nodes;
+const content = generateFileList(join(__dirname, "content")).nodes;
+console.log("🚀 ~ file: prerender-urls.js:7 ~ content:", content.find((c) => c.id === "homepage"));
 module.exports = () => {
-	const pages = [
-		{
-			url: '/',
-			seo: {
-				cover: '/assets/profile.jpg'
-			},
-			data: home
-		},
-		{ url: '/contact/' },
-		{ url: '/contact/success' }
-	];
+  const pages = [
+    {
+      url: "/",
+      seo: {
+        cover: "/assets/profile.jpg",
+      },
+      data: content.find((c) => c.id === "homepage"),
+	  tourDates: content.find((c) => c.id === "tour_dates"),
+    },
+  ];
 
-	// adding blogs list posts page
-	pages.push({
-		url: '/blogs/',
-		data: blogs
-	});
-
-	// adding all blog pages
-	pages.push(...blogs.edges.map(blog => {
-		let data;
-		if (blog.format === 'md') {
-			const { content } = parseMD(fs.readFileSync(join('content', 'blog', blog.id), 'utf-8'));
-			data = content;
-		} else {
-			data = fs.readFileSync(join('content', 'blog', blog.id), 'utf-8').replace(/---(.*(\r)?\n)*---/, '');
-		}
-		return {
-			url: `/blog/${blog.id}`,
-			seo: blog.details,
-			data: {
-				details: blog.details,
-				content: data
-			}
-		};
-	}));
-
-	return pages;
+  return pages;
 };

@@ -1,14 +1,14 @@
 :root {
-	--primary-color: #ff5f00;
-	--secondary-color: #333;
-	--background-color: #fff;
-	--font-color: #333;
+	--primary-color: #3498db; /* Blue */
+	--secondary-color: #2c3e50; /* Dark Blue */
+	--background-color: #ecf0f1; /* Light Gray */
+	--font-color: #34495e; /* Dark Gray */
   }
   
   body {
 	background-color: var(--background-color);
 	color: var(--font-color);
-	font-family: Arial, sans-serif;
+	font-family: 'Roboto', Arial, sans-serif;
 	padding: 0;
 	margin: 0;
   }
@@ -27,12 +27,14 @@
 	justify-content: center;
 	text-align: center;
 	padding: 50px 20px;
+	background-color: var(--primary-color);
+	color: var(--background-color);
   }
   
   .heroTitle,
   .aboutTitle {
 	font-size: 1.8rem;
-	color: var(--primary-color);
+	color: var(--background-color);
 	margin-bottom: 20px;
   }
   
@@ -43,7 +45,7 @@
   }
   
   .about {
-	border-top: 1px solid var(--secondary-color);
+	background-color: var(--secondary-color);
   }
   
   /* Larger screen adjustments */
@@ -67,4 +69,3 @@
 	  font-size: 1.2rem;
 	}
   }
-  

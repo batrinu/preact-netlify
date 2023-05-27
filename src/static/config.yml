@@ -4,8 +4,6 @@ backend:
 media_folder: src/assets
 public_folder: /assets
 
-publish_mode: editorial_workflow
-
 collections:
   - name: "homepage"
     label: "Homepage"
@@ -16,6 +14,7 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "home-page"}
       - {label: "Hero Title", name: "heroTitle", widget: "string"}
       - {label: "Hero Description", name: "heroDescription", widget: "text"}
+      - {label: "Featured Image", name: "thumbnail", widget: "image", choose_url: true, default: "/uploads/chocolate-dogecoin.jpg", media_library: {config: multiple: true}}
   - name: "tour_dates" # New collection for tour dates
     label: "Tour Dates"
     folder: "content/tour_dates"
@@ -25,3 +24,14 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Date", name: "date", widget: "date", format: "MMM Do, YYYY"}
       - {label: "Location", name: "location", widget: "string"}
+  - name: "facebook_videos" # New collection for tour dates
+    label: "Tour Dates"
+    folder: "content/tour_dates"
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "date", format: "MMM Do, YYYY"}
+      - {label: "Location", name: "location", widget: "string"}
+
+

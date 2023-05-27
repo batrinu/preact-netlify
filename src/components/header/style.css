@@ -1,40 +1,107 @@
-/* Header Styles */
 .header {
 	display: flex;
 	justify-content: space-between;
-	padding: 20px;
-	background-color: var(--primary-color);
-	color: var(--background-color);
+	align-items: center;
+	padding: 1rem;
+	background-color: #3f51b5;
+	color: #fff;
   }
   
   .header h1 {
 	margin: 0;
+	font-family: 'Roboto Slab', serif;
+	color: #fff; /* Dark Primary Color */
+	letter-spacing: 1.2px;
+	text-transform: uppercase;
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
   }
   
-  .header nav {
+  .menuToggle {
+	display: none;
+	flex-direction: column;
+	justify-content: space-around;
+	width: 2rem;
+	height: 2rem;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	z-index: 10;
+  }
+  
+  .menuToggle div {
+	width: 2rem;
+	height: 0.25rem;
+	background: #fff;
+	transition: all 0.3s ease;
+  }
+  
+  .line1 {
+	transform: translateY(0px);
+  }
+  
+  .line2 {
+	opacity: 1;
+  }
+  
+  .line3 {
+	transform: translateY(0px);
+  }
+  
+  .line1.open {
+	transform: rotate(-45deg) translate(-4px, 5px);
+  }
+  
+  .line2.open {
+	opacity: 0;
+  }
+  
+  .line3.open {
+	transform: rotate(45deg) translate(-10px, -10px);
+  }
+  
+  .nav {
 	display: flex;
-	gap: 20px;
+	justify-content: flex-start;
+	gap:15px;
+	width: 300px;
   }
   
-  .header a {
-	color: var(--background-color);
+  .nav a {
+	color: #fff;
 	text-decoration: none;
   }
   
-  .header a.active {
-	font-weight: bold;
+  .active {
+	text-decoration: underline;
   }
   
-  @media screen and (min-width: 768px) {
-	.header {
-	  padding: 40px 80px;
+  @media (max-width: 768px) {
+	.menuToggle {
+	  display: flex;
 	}
   
-	.header h1 {
-	  font-size: 2rem;
+	.nav {
+	  flex-direction: column;
+	  position: absolute;
+	  top: 0;
+	  right: 0;
+	  height: 100vh;
+	  width: 100vw;
+	  background-color: #3f51b5;
+	  transform: translateX(100%);
+	  transition: transform 0.3s ease-in-out;
 	}
   
-	.header nav {
-	  gap: 40px;
+	.nav a {
+	  text-align: center;
+	  padding: 2rem;
 	}
-  }
+
+	.nav.open {
+		transform: translateX(0);
+	  }
+	.nav.closed {
+		display: none;
+	}
+
+}

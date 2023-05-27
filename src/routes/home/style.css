@@ -16,7 +16,6 @@
   .home {
 	max-width: 100%;
 	margin: 0 auto;
-	padding: 20px;
   }
   
   .hero,
@@ -47,6 +46,54 @@
   .about {
 	background-color: var(--secondary-color);
   }
+
+  .tourDates {
+	margin-top: 2rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+  }
+  .tourDates ul {
+	display:flex;
+	gap:15px;
+  }
+  
+  .tourDates h2 {
+	font-size: 2rem;
+	color: #333;
+	width: 100%;
+	margin-left: 2rem;
+  }
+  
+  .tourDates li {
+	background-color: #fff;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+	margin-bottom: 2rem;
+	flex-basis: calc(50% - 1rem);
+	padding: 1rem;
+	border-radius: 4px;
+	list-style: none;
+	transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .tourDates li:hover {
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .tourDates h3 {
+	font-size: 1.5rem;
+	color: #333;
+	margin: 0;
+	margin-bottom: 0.5rem;
+  }
+  
+  .tourDates p {
+	color: #666;
+	margin: 0;
+	margin-bottom: 0.5rem;
+  }
+  
+  
   
   /* Larger screen adjustments */
   @media screen and (min-width: 768px) {

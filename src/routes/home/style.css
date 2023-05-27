@@ -1,91 +1,70 @@
-.home {
-  padding: 56px 20px;
-  width: 100%;
-}
-
-.about {
-  display: flex;
-}
-
-.imageContainer {
-  flex: 1;
-}
-
-.image {
-	height: 30vw;
-	background-image: url(/assets/profile.jpg);
-	background-size: cover;
-	background-position: center;
-}
-
-.quote {
-  flex: 1;
+:root {
+	--primary-color: #ff5f00;
+	--secondary-color: #333;
+	--background-color: #fff;
+	--font-color: #333;
+  }
+  
+  body {
+	background-color: var(--background-color);
+	color: var(--font-color);
+	font-family: Arial, sans-serif;
+	padding: 0;
+	margin: 0;
+  }
+  
+  .home {
+	max-width: 100%;
+	margin: 0 auto;
+	padding: 20px;
+  }
+  
+  .hero,
+  .about {
 	display: flex;
 	flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-image: url("/assets/quotes.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.details{
-	font-family: serif;
-	font-size: 32px;
-	font-style: italic;
-	padding-left: 32px;
-	text-align: center;
-	color: gray;
-	padding-bottom: 32px;
-}
-
-.author{
-	font-size: 16px;
-  color: black;
-}
-
-.bio{
-	margin: 40px auto;
-	display:flex;
+	align-items: center;
 	justify-content: center;
-}
-
-.bioleft, .bioright{
-	max-width: 25%;
-	text-align: justify;
-}
-
-.bioleft{
-	padding-right: 16px;
-}
-
-.bioright{
-	padding-left: 16px;
-}
-
-@media all and (max-width: 728px) {
+	text-align: center;
+	padding: 50px 20px;
+  }
+  
+  .heroTitle,
+  .aboutTitle {
+	font-size: 1.8rem;
+	color: var(--primary-color);
+	margin-bottom: 20px;
+  }
+  
+  .heroDescription,
+  .aboutDescription {
+	font-size: 1rem;
+	line-height: 1.6;
+  }
+  
+  .about {
+	border-top: 1px solid var(--secondary-color);
+  }
+  
+  /* Larger screen adjustments */
+  @media screen and (min-width: 768px) {
 	.home {
-		padding: 16px;
+	  max-width: 960px;
 	}
-
-  .about, .bio {
-		flex-direction: column;
+  
+	.hero,
+	.about {
+	  padding: 50px 0;
 	}
-
-	.details {
-		padding: 16px 0 0 0;
-		font-size: 1.5rem;
+  
+	.heroTitle,
+	.aboutTitle {
+	  font-size: 2.5rem;
 	}
-
-	.image {
-		height: 50vw;
-		width: 100%;
+  
+	.heroDescription,
+	.aboutDescription {
+	  font-size: 1.2rem;
 	}
-
-	.bioleft, .bioright{
-		max-width: 100%;
-		text-align: justify;
-		padding: 0;
-	}
-}
-
+  }
+  

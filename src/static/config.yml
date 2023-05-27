@@ -18,7 +18,7 @@ collections:
       - {label: "Hero Description", name: "heroDescription", widget: "text"}
   - name: "tour_dates" # New collection for tour dates
     label: "Tour Dates"
-    folder: "src/content/tour_dates"
+    folder: "content/tour_dates"
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields:

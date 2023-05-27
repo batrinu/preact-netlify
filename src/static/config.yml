@@ -1,23 +1,26 @@
 backend:
-  name: git-gateway
-  branch: main
+  name: github
+  repo: user/repo # Path to your Github repository
+  branch: main # Branch to update (optional; defaults to master)
 
 publish_mode: editorial_workflow
 
-media_folder: "static/images"
-public_folder: "/images"
+media_folder: "src/assets/uploads" # Media files will be stored in the repo under this folder
+public_folder: "/assets/uploads" # The src attribute for uploaded media will begin with /images/uploads
 
-collections:
-  - name: "homepage"
-    label: "Homepage"
-    folder: "content/homepage"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "home-page"}
-      - {label: "Hero Title", name: "heroTitle", widget: "string"}
-      - {label: "Hero Description", name: "heroDescription", widget: "text"}
-- name: "tour_dates" # New collection for tour dates
+collections: # A list of collections the CMS should be aware of
+  - name: "pages" # Used in routes, e.g., /admin/collections/blog
+    label: "Pages" # Used in the UI
+    files:
+      - file: "src/content/home.md"
+        label: "Home Page"
+        name: "home"
+        fields: # The fields for each document, usually in front matter
+          - {label: "Hero Title", name: "hero_title", widget: "string", default: "Welcome to the show!"}
+          - {label: "Hero Description", name: "hero_description", widget: "text", default: "This is the home page."}
+          - {label: "About Title", name: "about_title", widget: "string", default: "About me"}
+          - {label: "About Description", name: "about_description", widget: "text", default: "This is the about section."}
+  - name: "tour_dates" # New collection for tour dates
     label: "Tour Dates"
     folder: "src/content/tour_dates"
     create: true # Allow users to create new documents in this collection

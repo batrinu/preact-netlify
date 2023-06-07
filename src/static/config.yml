@@ -34,4 +34,16 @@ collections:
       - {label: "Date", name: "date", widget: "date", format: "MMM Do, YYYY"}
       - {label: "Location", name: "location", widget: "string"}
 
+  - name: "home"
+    label: "Home"
+    label_singular: "Homepage" # Used in the UI, ie: "New Post"
+    files:
+      - file: "content/home.md"
+        label: "Homepage"
+        name: "homepage"
+        fields:
+          - { label: "Header", name: "header", widget: "string"}
+          - { label: "Subtitle", name: "subtitle", widget: "string", required: false}
+          - { label: "Featured Post", name: "featuredPost", widget: "relation", collection: "pages", searchFields: ["title"], displayFields: ["title"], required: false }
+          - { label: "Body", name: "body", widget: "markdown"}
 
